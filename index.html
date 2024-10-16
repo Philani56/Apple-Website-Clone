@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="assets/apple-logo.png" type="image/x-icon">
+    <title>Apple</title>
+    <style>
+              * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', sans-serif;
+}
+
+body {
+    color: #333;
+    background-color: #f5f5f7;
+}
+
+/* Navbar Styling */
+nav {
+    background-color: #000;
+    color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+}
+
+nav .logo img {
+    width: 40px;
+    height: auto;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #0071e3;
+}
+
+/* Slideshow Styling */
+header {
+    margin-top: 68px; /* Ensure header content is below navbar */
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+    background-color: #000;
+}
+
+.slideshow-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    animation: slide 30s infinite;
+}
+
+.slide {
+    min-width: 100%;
+    height: 100%;
+    transition: transform 1s ease-in-out;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Gradient overlay with Apple-inspired small color gradients */
+.slide::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom right, rgba(0, 123, 255, 0.5), rgba(255, 45, 85, 0.5), rgba(52, 199, 89, 0.5));
+    z-index: 1;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    75% { transform: translateX(-300%); }
+    100% { transform: translateX(0); }
+}
+
+.header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 2; /* Ensure text is above gradient */
+}
+
+.header-text h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.header-text p {
+    font-size: 1.4rem;
+    margin-top: 1rem;
+    font-weight: 300;
+}
+
+.header-text a {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: #0071e3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s ease;
+}
+
+.header-text a:hover {
+    background-color: #005bb5;
+}
+
+/* Mobile Navbar Menu */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        display: none;
+        background-color: #000;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    nav .menu-toggle {
+        display: block;
+        cursor: pointer;
+    }
+
+    nav ul li {
+        text-align: center;
+        margin: 10px 0;
+    }
+}
+
+nav .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Featured Products Section */
+.featured-products {
+    padding: 50px 30px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.featured-products h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #f5f5f7;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+}
+
+.product-card h3 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+}
+
+.product-card p {
+    color: #757575;
+}
+
+.product-card .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0071e3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.product-card .btn:hover {
+    background-color: #005bb5;
+}
+
+/* Hover effect */
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+/* Why Choose Apple Section */
+/* Why Choose Apple Section */
+.why-choose-apple {
+    padding: 60px 15px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.why-choose-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.why-choose-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-choose-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.why-choose-img {
+    width: 45%;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.why-choose-text {
+    flex: 1;
+    text-align: left;
+    padding: 0 15px;
+}
+
+.why-choose-text h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #000;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.why-choose-text p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.learn-more-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #0071e3;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more-btn:hover {
+    background-color: #005bb5;
+}
+
+/* Hover effects for items */
+.why-choose-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.why-choose-item:hover .why-choose-img {
+    transform: scale(1.03);
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .why-choose-content {
+        flex-direction: column;
+    }
+
+    .why-choose-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .why-choose-img {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .why-choose-text {
+        padding: 0;
+        text-align: center; /* Center-align text for mobile */
+    }
+
+    .why-choose-text h3 {
+        font-size: 1.8rem;
+    }
+
+    .why-choose-text p {
+        font-size: 1rem;
+    }
+
+    .learn-more-btn {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Ultra small devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .why-choose-item {
+        padding: 15px;
+    }
+
+    .why-choose-text h3 {
+        font-size: 1.6rem;
+    }
+
+    .why-choose-text p {
+        font-size: 0.9rem;
+    }
+
+    .learn-more-btn {
+        padding: 6px 18px;
+        font-size: 0.85rem;
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="assets/apple-logo.png" alt="Apple Logo">
+        </div>
+        <ul>
+            <li><a href="#">Mac</a></li>
+            <li><a href="#">iPad</a></li>
+            <li><a href="#">iPhone</a></li>
+            <li><a href="#">Watch</a></li>
+            <li><a href="#">TV</a></li>
+            <li><a href="#">Music</a></li>
+            <li><a href="#">Support</a></li>
+        </ul>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    </nav>
+
+    <header>
+        <div class="slideshow-container">
+            <div class="slide">
+                <img src="assets/4.jpg" alt="MacBook Air">
+            </div>
+            <div class="slide">
+                <img src="assets/3.jpg" alt="iMac">
+            </div>
+            <div class="slide">
+                <img src="assets/1.jpg" alt="iPhone 14">
+            </div>
+            <div class="slide">
+                <img src="assets/7.jpg" alt="iPad Pro">
+            </div>
+        </div>
+        <div class="header-text">
+            <h1>Discover Apple</h1>
+            <p>Innovation, quality, and design all in one place.</p>
+            <a href="#">Shop Now</a>
+        </div>
+    </header>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="assets/iphone.jpg" alt="iPhone">
+                <h3>iPhone</h3>
+                <p>The ultimate iPhone experience with cutting-edge features.</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="assets/privacy.jpg" alt="MacBook">
+                <h3>MacBook Air</h3>
+                <p>Lightweight, powerful, and ready for anything.</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="assets/ipad.jpg" alt="iPad">
+                <h3>iPad Pro</h3>
+                <p>Performance that leaps ahead, with the M2 chip.</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+
+            <div class="product-card">
+                <img src="assets/imac.jpg" alt="iMac">
+                <h3>iMac 24</h3>
+                <p>Transform your workspace with the M1 iMac.</p>
+                <a href="#" class="btn">Buy Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Apple Section -->
+<section class="why-choose-apple">
+    <div class="why-choose-content">
+        <div class="why-choose-item">
+            <img src="assets/performance.jpg" alt="Performance Image" class="why-choose-img">
+            <div class="why-choose-text">
+                <h3>Performance</h3>
+                <p>Unmatched power and speed with our custom-built chips. Every Apple device is engineered for performance, whether you're working, creating, or playing.</p>
+                <a href="#" class="learn-more-btn">Learn More</a>
+            </div>
+        </div>
+        <div class="why-choose-item">
+            <img src="assets/design.jpg" alt="Design Image" class="why-choose-img">
+            <div class="why-choose-text">
+                <h3>Design</h3>
+                <p>With every product, we obsess over every detail. From the precision-engineered hardware to the intuitive software, Apple products look beautiful and work flawlessly.</p>
+                <a href="#" class="learn-more-btn">Learn More</a>
+            </div>
+        </div>
+        <div class="why-choose-item">
+            <img src="assets/innovation.jpg" alt="Innovation Image" class="why-choose-img">
+            <div class="why-choose-text">
+                <h3>Innovation</h3>
+                <p>At the core of every Apple product is innovation. We push the boundaries of what's possible to create experiences that inspire and delight.</p>
+                <a href="#" class="learn-more-btn">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Apple Real Section -->
+<section class="apple-real">
+    <div class="apple-real-content">
+        <div class="real-item">
+            <div class="real-text">
+                <h3>Privacy</h3>
+                <p>Privacy is a fundamental human right. That’s why every Apple product is designed from the ground up to protect your personal information and give you control over what you share.</p>
+                <a href="#" class="learn-more-btn">Learn More</a>
+            </div>
+            <img src="assets/privacy.jpg" alt="Privacy Image" class="real-img">
+        </div>
+        
+        <div class="real-item">
+            <div class="real-text">
+                <h3>Accessibility</h3>
+                <p>Technology is most powerful when it empowers everyone. Apple’s accessibility features are designed to make sure that everyone, including people with disabilities, can use our products.</p>
+                <a href="#" class="learn-more-btn">Learn More</a>
+            </div>
+            <img src="assets/10.jpg" alt="Accessibility Image" class="real-img">
+        </div>
+    </div>
+</section>
+
+<style>
+/* Apple Real Section */
+.apple-real {
+    padding: 60px 15px;
+    background-color: #f5f5f7;
+    text-align: center;
+}
+
+.apple-real-content {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.real-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.real-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.real-img {
+    width: 45%;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.real-text {
+    flex: 1;
+    text-align: left;
+    padding: 0 15px;
+}
+
+.real-text h3 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: #000;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.real-text p {
+    font-size: 1.2rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.learn-more-btn {
+    display: inline-block;
+    padding: 10px 25px;
+    background-color: #0071e3;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.learn-more-btn:hover {
+    background-color: #005bb5;
+}
+
+/* Hover effects for items */
+.real-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.real-item:hover .real-img {
+    transform: scale(1.03);
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .apple-real {
+        padding: 50px 10px;
+    }
+
+    .apple-real-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .real-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .real-img {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .real-text {
+        padding: 0;
+        text-align: center; /* Center-align text for mobile */
+    }
+
+    .real-text h3 {
+        font-size: 1.8rem;
+    }
+
+    .real-text p {
+        font-size: 1rem;
+    }
+
+    .learn-more-btn {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Ultra small devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .real-item {
+        padding: 15px;
+    }
+
+    .real-text h3 {
+        font-size: 1.6rem;
+    }
+
+    .real-text p {
+        font-size: 0.9rem;
+    }
+
+    .learn-more-btn {
+        padding: 6px 18px;
+        font-size: 0.85rem;
+    }
+}
+
+
+</style>
+<!-- Final Section -->
+<section class="final-section">
+    <div class="video-wrapper">
+        <video class="video-small" autoplay muted loop>
+            <source src="assets/video.mp4" type="video/mp4">
+            
+        </video>
+    </div>
+</section>
+<!-- Apple Ecosystem Section -->
+<section class="apple-ecosystem">
+    <div class="ecosystem-content">
+        <h2>Apple Ecosystem</h2>
+        <p>The power of Apple products isn't just in what they do—it's in how they work together. Your iPhone, Mac, iPad, and Apple Watch are designed to connect seamlessly, creating an ecosystem where everything just works.</p>
+        
+        <div class="ecosystem-grid">
+            <div class="ecosystem-item">
+                <img src="assets/ecosystem1.jpg" alt="Continuity" class="ecosystem-img">
+                <h3>Continuity</h3>
+                <p>Start an email on your iPhone and finish it on your Mac. Copy text on your iPad and paste it on your Mac. With Continuity, everything flows seamlessly across your devices.</p>
+            </div>
+            <div class="ecosystem-item">
+                <img src="assets/ecosystem2.jpg" alt="AirDrop" class="ecosystem-img">
+                <h3>AirDrop</h3>
+                <p>Quickly share photos, documents, and files between your iPhone, iPad, and Mac with AirDrop. No wires, no hassle, just simple sharing.</p>
+            </div>
+            <div class="ecosystem-item">
+                <img src="assets/ecosystem3.jpg" alt="Handoff" class="ecosystem-img">
+                <h3>Handoff</h3>
+                <p>Pick up where you left off. Handoff lets you continue what you were doing across different devices, making switching from one device to another effortless.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Footer -->
+<!-- Footer -->
+<footer class="advanced-footer">
+    <div class="footer-logo">
+        <!-- Logo Image -->
+        <img src="assets/apple-logo.png" alt="Logo" class="footer-logo-img">
+    </div>
+    <div class="footer-columns">
+        <div class="footer-column">
+            <h4>Shop and Learn</h4>
+            <ul>
+                <li><a href="#">Store</a></li>
+                <li><a href="#">Mac</a></li>
+                <li><a href="#">iPad</a></li>
+                <li><a href="#">iPhone</a></li>
+                <li><a href="#">Watch</a></li>
+                <li><a href="#">TV</a></li>
+                <li><a href="#">Music</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Services</h4>
+            <ul>
+                <li><a href="#">Apple Music</a></li>
+                <li><a href="#">Apple TV+</a></li>
+                <li><a href="#">iCloud</a></li>
+                <li><a href="#">Apple Podcasts</a></li>
+                <li><a href="#">Apple Books</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Apple Store</h4>
+            <ul>
+                <li><a href="#">Find a Store</a></li>
+                <li><a href="#">Genius Bar</a></li>
+                <li><a href="#">Today at Apple</a></li>
+                <li><a href="#">Apple Camp</a></li>
+                <li><a href="#">Financing</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>For Business</h4>
+            <ul>
+                <li><a href="#">Apple and Business</a></li>
+                <li><a href="#">Shop for Business</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 Apple Inc. All rights reserved.</p>
+        <ul class="footer-bottom-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Sales and Refunds</a></li>
+            <li><a href="#">Legal</a></li>
+            <li><a href="#">Site Map</a></li>
+        </ul>
+    </div>
+</footer>
+
+
+
+<style>
+
+
+/* Footer Styling */
+.final-section {
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full viewport height */
+    background: linear-gradient(to bottom right, rgba(0, 123, 255, 0.5), rgba(255, 45, 85, 0.5), rgba(52, 199, 89, 0.5));
+}
+
+.video-wrapper {
+    position: relative; /* Positioning context for the video */
+    width: 80%; /* Adjust width as needed */
+    max-width: 600px; /* Set a maximum width */
+    height: auto; /* Height will adjust automatically based on width */
+}
+
+.video-small {
+    width: 100%; /* Full width of the wrapper */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Cover the entire area while maintaining aspect ratio */
+    display: block; /* Ensure no inline space is added */
+}
+
+/* Advanced Footer */
+.advanced-footer {
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 50px 20px;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Logo Styling */
+.footer-logo {
+    margin-bottom: 30px;
+}
+
+.footer-logo-img {
+    max-width: 120px; /* Adjust size of the logo */
+    display: inline-block;
+}
+
+/* Footer Column Styling */
+.footer-columns {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #444; /* Subtle divider */
+}
+
+/* Responsive Footer Columns for Mobile */
+@media (max-width: 768px) {
+    .footer-columns {
+        flex-direction: column; /* Stack columns on top of each other */
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column {
+        padding: 0 10px;
+        margin-bottom: 20px;
+    }
+}
+
+.footer-column h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #ccc; /* Light gray heading */
+    font-weight: 600;
+}
+
+.footer-column ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    text-decoration: none;
+    color: #bbb; /* Light gray links */
+    transition: color 0.3s ease;
+}
+
+.footer-column ul li a:hover {
+    color: #fff; /* White on hover */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    padding-top: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-size: 13px;
+}
+
+.footer-bottom p {
+    color: #777; /* Subtle gray text */
+    margin: 0;
+}
+
+.footer-bottom-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 15px 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-bottom-links li a {
+    text-decoration: none;
+    color: #777; /* Subtle gray links */
+    transition: color 0.3s ease;
+}
+
+.footer-bottom-links li a:hover {
+    color: #fff; /* White on hover */
+}
+
+/* Responsive Footer Bottom Links */
+@media (max-width: 768px) {
+    .footer-bottom-links {
+        flex-direction: column; /* Stack the links vertically on smaller screens */
+        gap: 10px;
+    }
+}
+</style>
+
+
+<style>
+    /* Apple Ecosystem Section */
+    .apple-ecosystem {
+        padding: 100px 20px;
+        background-color: white;
+        text-align: center;
+    }
+
+    .ecosystem-content h2 {
+        font-size: 2.8rem;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .ecosystem-content p {
+        font-size: 1.5rem;
+        color: #555;
+        margin-bottom: 50px;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .ecosystem-grid {
+        display: flex;
+        gap: 50px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .ecosystem-item {
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s, box-shadow 0.3s;
+        text-align: left;
+        width: 300px;
+    }
+
+    .ecosystem-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    }
+
+    .ecosystem-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .ecosystem-item h3 {
+        font-size: 1.8rem;
+        color: #0071e3;
+        margin: 20px;
+    }
+
+    .ecosystem-item p {
+        font-size: 1.2rem;
+        color: #555;
+        padding: 0 20px 30px 20px;
+    }
+
+    /* Responsive for Apple Ecosystem Section */
+    @media (max-width: 768px) {
+        .ecosystem-grid {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+</style>
+
+
+
+    <script>
+        function toggleMenu() {
+            const navList = document.querySelector('nav ul');
+            navList.classList.toggle('show');
+        }
+    </script>
+</body>
+</html>
